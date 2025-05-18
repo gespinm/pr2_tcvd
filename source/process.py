@@ -111,9 +111,6 @@ def _analyze(df):
     clusters = kmeans.fit_predict(X_scaled)
     pca = PCA(n_components=2)
     X_pca = pca.fit_transform(X_scaled)
-
-    kmeans = KMeans(n_clusters=2, random_state=42)
-    clusters = kmeans.fit_predict(X_scaled)
     centroids_2d = pca.transform(kmeans.cluster_centers_)
 
     cluster_labels = {}
