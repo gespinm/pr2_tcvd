@@ -78,7 +78,7 @@ def _analyze(df):
 
     X = df[["Age", "Gender", "Heart rate", "Systolic blood pressure",
             "Diastolic blood pressure", "Blood sugar", "CK-MB", "Troponin"]]
-    y = y = df["Result"]
+    y = df["Result"]
 
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
