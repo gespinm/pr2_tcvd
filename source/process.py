@@ -40,9 +40,6 @@ def _clean(df):
 
     df.dropna(inplace=True)
 
-    if df["Result"].isna().sum() > 0:
-        print(f"Warning: There are still {df['Result'].isna().sum()} NaNs in 'Result' after cleaning.")
-
     count_class_0 = (df["Result"] == 0).sum()
     count_class_1 = (df["Result"] == 1).sum()
     minority_count = min(count_class_0, count_class_1)
