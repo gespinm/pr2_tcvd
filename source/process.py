@@ -81,11 +81,9 @@ def _analyze(df):
     y = df["Result"]
 
     scaler = StandardScaler()
-    X_scaled = scaler.fit_transform(X)
 
     # Model supervisat:
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
 
@@ -107,6 +105,7 @@ def _analyze(df):
 
 
     # Model no supervisat:
+    X_scaled = scaler.fit_transform(X)
     kmeans = KMeans(n_clusters=2, random_state=42)
     clusters = kmeans.fit_predict(X_scaled)
     pca = PCA(n_components=2)
